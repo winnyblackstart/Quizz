@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        .skip-button {
+            background-color: #ffc107;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Questionnaire</h1>
+        <form method="POST">
+            <div class="question">
+                <p>{{ question.question }}</p>
+                <ul class="options">
+                    {% for option in question.options %}
+                        <li><input type="radio" id="{{ option }}" name="answer" value="{{ option }}" required>
+                            <label for="{{ option }}">{{ option }}</label></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <button type="submit">Next</button>
+            <button type="submit" name="skip" class="skip-button">Skip</button>
+        </form>
+    </div>
+</body>
+</html>

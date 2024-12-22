@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: linear-gradient(to bottom right, #ffffff, #f7f7f7);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: calc(300px + 10%);
+            height: calc(200px + 5%);
+            text-align: center;
+            position: relative;
+        }
+        .top-left {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            text-align: left;
+        }
+        .top-left h3 {
+            margin: 0;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .top-left p {
+            margin: 0;
+            font-size: 0.6em;
+            color: rgba(0, 0, 0, 0.5);
+        }
+        .certificate-title {
+            position: absolute;
+            top: 70px;
+            margin: 20px 0 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+        .student-name {
+            position: absolute;
+            left: 80px;
+            top: 140px;
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        .progress-ring {
+            
+            position: absolute;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+        }
+        .progress-ring svg {
+            width: 100px;
+            height: 100px;
+            transform: rotate(-90deg);
+        }
+        .progress-ring circle {
+            stroke-width: 10;
+            stroke-linecap: round;
+            fill: none;
+        }
+        .progress-ring circle.background {
+            stroke: #e0e0e0;
+        }
+        .progress-ring circle.progress {
+            stroke: {{ color }};
+            stroke-dasharray: {{ score }} 100;
+        }
+        .score-label {
+            position: absolute;
+            top: 50%;
+            right: 18px;
+            font-size: 1.2em;
+            color: #007bff;
+            font-weight: bold;
+            transform: translateY(-50%);
+        }
+        .bottom-left {
+            position: absolute;
+            bottom: 20px;
+            left: 30px;
+            text-align: left;
+            font-size: 0.7em;
+            color: rgba(0, 0, 0, 0.7);
+        }
+        .bottom-right {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            text-align: right;
+        }
+        .signature {
+            position: absolute;
+            bottom: 50px;
+            right: 20px;
+            font-style: italic;
+            font-weight: bold;
+            font-size: 1em;
+        }
+        .link {
+            font-size: 0.9em;
+            margin-top: 5px;
+            text-decoration: none;
+            color: #007bff;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-left">
+            <h3>Cynoza</h3>
+            <p>Course provided by Winny Lyonnais</p>
+        </div>
+        <div class="certificate-title">Certificate of Completion</div>
+        <div class="student-name">{{ name }}</div>
+        <div class="progress-ring">
+            <svg viewBox="0 0 36 36">
+                <circle class="background" cx="18" cy="18" r="16"></circle>
+                <circle class="progress" cx="18" cy="18" r="16"></circle>
+            </svg>
+            <div class="score-label">{{ score }}%</div>
+        </div>
+        <div class="bottom-left">
+            <p>Supported by Coveriot, Coursera</p>
+        </div>
+        <div class="bottom-right">
+            <p class="signature">Director, Coveriot</p>
+            <a href="#" class="link">Visit Coveriot question set</a>
+        </div>
+    </div>
+</body>
+</html>
